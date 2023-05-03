@@ -35,12 +35,12 @@ div.main {
 div#tools {
     /* background-color: rgb(248, 0, 0); */
     width: 200px;
-    height: 528px;
+    height: 600px;
     margin-right: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 div#tools button{
@@ -53,18 +53,60 @@ div#tools button{
 div#tools button:hover{
     background-color: rgb(48, 47, 47);
     color: white;
+    width: 220px;
+    height: 42px;
+    margin-bottom: -2px;
+}
+
+div#tools button:active{
+    background-color: rgb(48, 47, 47);
+    color: white;
+    width: 220px;
+    height: 42px;
+    margin-bottom: -2px;
+}
+
+input[type='color'] {
+    appearance: none;
+    border: none;
+}
+  
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+  
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 1px 3px 8px;
 }
 
 div#tools #color-picker{
-    width: 60px;
-    height: 60px;
-    /* border-radius: 20px; */
-    background-color: rgb(48, 47, 47);
-    color: white;
+    width: 90px;
+    height: 90px;
+    margin-top: 5px;
+}
+
+div#tools #color-picker:focus, div#tools #color-picker:hover{
+    width: 95px;
+    height: 95px;
+    margin-top: 0px;
+}
+
+div#tools p {
+    font-size: 36px;
+    letter-spacing: 1px;
+    margin-top: -20px;
+    margin-bottom: -35px;
+}
+
+div#tools #grid-size {
+    width: 100%;
+    cursor: pointer;    
+    accent-color: #0a8f5e;
 }
 
 div#grid {
-    /* background-color: rgb(0, 0, 0); */
     background-color: white;
     width: 700px;
     height: 700px;
