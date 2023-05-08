@@ -4,9 +4,93 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #EDEDED;
     font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color)
 }
+
+/* Dark mode slider attributes */
+:root {
+
+    --font-color: #0f0f0f;
+    --bg-color: #ededed;
+    --btnhover-color: rgb(48, 47, 47);
+    --btnborder-color: #0f0f0f;
+    /* --slider-color: #0a8f5e; */
+    --slider-color: rgb(48, 47, 47);
+    --gridborder-color: rgb(207, 207, 207);
+    
+}
+
+[data-theme="dark"] {
+    --font-color: #ffffff;
+    --font-color: rgb(240, 24, 24);
+    --bg-color: #121212;
+    --btnhover-color: rgb(240, 24, 24);
+    --btnborder-color: rgb(121, 19, 19);
+    --slider-color: rgb(240, 24, 24);
+    --gridborder-color: rgb(37, 37, 37);
+}
+
+.switch {
+    height: 100px;
+  	position: fixed;
+    right: 50px;
+    top: 50px;
+}
+    
+.theme-switch {
+	display: inline-block;
+	height: 34px;
+	position: relative;
+	width: 60px;
+}
+
+.theme-switch input {
+  	display:none;
+}
+
+.slider {
+	background-color: #ccc;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: .4s;
+}
+
+.slider:before {
+	background-color: #fff;
+	bottom: 4px;
+	content: "";
+	height: 26px;
+	left: 4px;
+	position: absolute;
+	transition: .4s;
+	width: 26px;
+}
+
+input:checked + .slider {
+  	background-color: #2b2b2b;
+}
+
+input:checked + .slider:before {
+  	transform: translateX(26px);
+}
+
+.slider.round {
+  	border-radius: 34px;
+}
+
+.slider.round:before {
+  	border-radius: 50%;
+}
+/* ----------------------------------------- */
+
+
+
+
 
 div.content {
     display: flex;
@@ -17,11 +101,15 @@ div.content {
 
 div.header{
     text-align: center;
+    margin-top: 30px;
 }
 div.header p {
     margin-top: 15px;
     font-size: 70px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    color: var(--font-color);
+    /* font-family: "Adrenaline Hit"; */
+    font-family: "Aldo the Apache";
 }
 
 div.main {
@@ -47,22 +135,24 @@ div#tools button{
     width: 200px;
     height: 40px;
     border-radius: 8px;
-    border: 1px solid black;
+    border: 1px solid var(--btnborder-color);
     font-size: 16px;
     transition: 0.25s;
     transition-timing-function: ease;
+    background-color: var(--bg-color);
+    color: var(--font-color);
 }
 div#tools button:hover{
-    background-color: rgb(48, 47, 47);
-    color: white;
+    background-color: var(--btnhover-color);
+    color: var(--bg-color);
     width: 220px;
     height: 42px;
     margin-bottom: -2px;
 }
 
 div#tools button:active{
-    background-color: rgb(48, 47, 47);
-    color: white;
+    background-color: var(--btnhover-color);
+    color: var(--bg-color);
     width: 220px;
     height: 42px;
     margin-bottom: -2px;
@@ -71,6 +161,7 @@ div#tools button:active{
 input[type='color'] {
     appearance: none;
     border: none;
+    background-color: var(--bg-color);
 }
   
 input[type='color']::-webkit-color-swatch-wrapper {
@@ -100,18 +191,19 @@ div#tools p {
     letter-spacing: 1px;
     margin-top: -20px;
     margin-bottom: -35px;
+    color: var(--font-color);
 }
 
 div#tools #grid-size {
     width: 100%;
     cursor: pointer;    
-    accent-color: #0a8f5e;
+    accent-color: var(--slider-color);
 }
 
 div#grid {
     background-color: white;
     width: 700px;
     height: 700px;
-    border: 50px solid rgb(207, 207, 207);
-    border-radius: 10px;
+    border: 25px solid var(--gridborder-color);
+    border-radius: 15px;
 }
