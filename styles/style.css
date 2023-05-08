@@ -49,7 +49,7 @@ div#tools button{
     border-radius: 8px;
     border: 1px solid black;
     font-size: 16px;
-    transition: 0.3s;
+    transition: 0.25s;
     transition-timing-function: ease;
 }
 div#tools button:hover{
@@ -112,4 +112,6 @@ div#grid {
     background-color: white;
     width: 700px;
     height: 700px;
+    border: 50px solid rgb(207, 207, 207);
+    border-radius: 10px;
 }
