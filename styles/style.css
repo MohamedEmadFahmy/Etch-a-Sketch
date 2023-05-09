@@ -15,10 +15,11 @@
     --bg-color: #ededed;
     --btnhover-color: rgb(48, 47, 47);
     --btnborder-color: #0f0f0f;
-    /* --slider-color: #0a8f5e; */
     --slider-color: rgb(48, 47, 47);
     --gridborder-color: rgb(207, 207, 207);
+
     
+    --toolbox-color : rgb(207, 207, 207);
 }
 
 [data-theme="dark"] {
@@ -29,6 +30,7 @@
     --btnborder-color: rgb(121, 19, 19);
     --slider-color: rgb(240, 24, 24);
     --gridborder-color: rgb(37, 37, 37);
+    --toolbox-color : black
 }
 
 .switch {
@@ -150,7 +152,7 @@ div#tools button:hover{
     margin-bottom: -2px;
 }
 
-div#tools button:active{
+div#tools button.active{
     background-color: var(--btnhover-color);
     color: var(--bg-color);
     width: 220px;
@@ -198,6 +200,7 @@ div#tools #grid-size {
     width: 100%;
     cursor: pointer;    
     accent-color: var(--slider-color);
+    margin-top: 10px;
 }
 
 div#grid {
