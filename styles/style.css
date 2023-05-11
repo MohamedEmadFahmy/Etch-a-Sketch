@@ -205,8 +205,21 @@ div#tools #grid-size {
 
 div#grid {
     background-color: white;
+    padding: 0px;
+    margin: 0px;
     width: 700px;
     height: 700px;
     border: 25px solid var(--gridborder-color);
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0px;
+    row-gap: 0px;
+}
+
+.box {
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    /* border: 3px solid #ffffff; */
 }
