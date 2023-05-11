@@ -29,7 +29,6 @@ const clear = ()=>{
 };
 
 const toggleGridlines = () => {
-    gridlinesButton.classList.toggle("active");
     let borderLeftCells = document.querySelectorAll(".border-left");
     let borderTopCells = document.querySelectorAll(".border-top");
     if(showGridLines){
@@ -113,6 +112,7 @@ gridSizeSlider.oninput = () => {
 
 clearButton.addEventListener("click", clear);
 gridlinesButton.addEventListener("click", () => {
+    gridlinesButton.classList.toggle("active");
     toggleGridlines();
     showGridLines = !showGridLines;
 });
