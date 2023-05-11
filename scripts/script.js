@@ -18,20 +18,19 @@ const pixelsXY = 700;
 
 firstButton.classList.add("active"); // set default mode and button to be active
 
-let mode = "color";
-let showGridLines = true;
-gridlinesButton.classList.toggle("active");
-
-
 
 const clear = ()=>{
+    grid.innerHTML = "";
+    gridSize = gridSizeSlider.value;
+    createDivs(gridSize);
+    toggleGridlines();
     
 };
 
 const toggleGridlines = () => {
     let borderLeftCells = document.querySelectorAll(".border-left");
     let borderTopCells = document.querySelectorAll(".border-top");
-    if(showGridLines){
+    if(gridlinesButton.classList.contains("active")){
         borderLeftCells.forEach(cell => {
             cell.style.borderLeft = "1px solid grey";
         });
@@ -49,7 +48,6 @@ const toggleGridlines = () => {
     }
 };
 
-toggleGridlines();
 
 const handleClick = (event)=>{
     buttons.forEach((button) => {
@@ -57,8 +55,8 @@ const handleClick = (event)=>{
     });
     event.target.classList.add("active");     // to make only 1 of the first 3 buttons active at the same time
     let buttonId = event.target.id;
-    mode = buttonId.slice(0,-5)
-    console.log(mode);
+    mode = buttonId.slice(0,-5) // modes: color, rainbow, eraser
+    // console.log(mode);
 };
 
 buttons.forEach((button) =>{
@@ -90,22 +88,14 @@ const createDivs = (size) => {
     }
 };
 
-
-gridSizeText.innerHTML = gridSize + "x" + gridSize;  // to update slider text
-// createDivs(gridSize);
-createDivs(4);
-
-
-
 gridSizeSlider.oninput = () => {
     grid.innerHTML = "";
     gridSize = gridSizeSlider.value;
     gridSizeText.innerHTML = gridSize + "x" + gridSize;
     // createDivs(2);
     createDivs(gridSize);
-    if(showGridLines){
-        toggleGridlines();
-    }
+    toggleGridlines();
+
 }
 
 
@@ -114,6 +104,18 @@ clearButton.addEventListener("click", clear);
 gridlinesButton.addEventListener("click", () => {
     gridlinesButton.classList.toggle("active");
     toggleGridlines();
-    showGridLines = !showGridLines;
 });
+
+
+
+
+gridSizeText.innerHTML = gridSize + "x" + gridSize;  // to update slider text
+// createDivs(6);
+createDivs(gridSize);
+let mode = "color";
+gridlinesButton.classList.toggle("active");
+toggleGridlines();
+
+
+
 
