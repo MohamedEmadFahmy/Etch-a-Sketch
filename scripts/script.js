@@ -72,7 +72,7 @@ const createDivs = (size) => {
             const div = document.createElement("div");
             div.classList.add("box");
             div.style.add
-            let width = (pixelsXY * 0.92988) / size;
+            let width = (pixelsXY) / size;
             div.style.width = width + "px";
             div.style.height = width + "px";
             if(i !== 0){

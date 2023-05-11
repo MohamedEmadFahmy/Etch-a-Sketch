@@ -204,6 +204,7 @@ div#tools #grid-size {
 }
 
 div#grid {
+    box-sizing: content-box;
     background-color: white;
     padding: 0px;
     margin: 0px;
