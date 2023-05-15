@@ -16,14 +16,15 @@ const grid = document.querySelector("#grid");
 const pixelsXY = 700;
 
 
-firstButton.classList.add("active"); // set default mode and button to be active
+firstButton.classList.add("active"); // set default mode to be color and button to be active
 
 
-const clear = ()=>{
-    grid.innerHTML = "";
-    gridSize = gridSizeSlider.value;
-    createDivs(gridSize);
-    toggleGridlines();
+const clear = () => {
+    const cells = document.querySelectorAll("div.box");
+
+    cells.forEach( (cell) => {
+        cell.style.backgroundColor = "white";
+    });
     
 };
 
@@ -84,6 +85,7 @@ const createDivs = (size) => {
                 // div.style.backgroundColor = "black";
             }
             grid.appendChild(div);
+            addListener(div);
         }
     }
 };
@@ -92,29 +94,37 @@ gridSizeSlider.oninput = () => {
     grid.innerHTML = "";
     gridSize = gridSizeSlider.value;
     gridSizeText.innerHTML = gridSize + "x" + gridSize;
-    // createDivs(2);
     createDivs(gridSize);
     toggleGridlines();
-
 }
 
 
 
 clearButton.addEventListener("click", clear);
+
+
 gridlinesButton.addEventListener("click", () => {
     gridlinesButton.classList.toggle("active");
     toggleGridlines();
 });
 
 
+function addListener(div) {
+    div.addEventListener("mousedown", () => {
+        div.style.backgroundColor = "black";
+    })
+}
 
 
 gridSizeText.innerHTML = gridSize + "x" + gridSize;  // to update slider text
-// createDivs(6);
-createDivs(gridSize);
+// createDivs(gridSize);
+createDivs(6);
 let mode = "color";
 gridlinesButton.classList.toggle("active");
 toggleGridlines();
+
+
+
 
 
 
