@@ -108,10 +108,19 @@ gridlinesButton.addEventListener("click", () => {
     toggleGridlines();
 });
 
+document.addEventListener("mouseup", () => {
+        mouseDown = false;
+})
 
 function addListener(div) {
     div.addEventListener("mousedown", () => {
         div.style.backgroundColor = "black";
+        mouseDown = true;
+    })
+    div.addEventListener("mouseover", () => {
+        if(mouseDown){
+            div.style.backgroundColor = "black";
+        }
     })
 }
 
@@ -122,6 +131,8 @@ createDivs(6);
 let mode = "color";
 gridlinesButton.classList.toggle("active");
 toggleGridlines();
+
+var mouseDown = false;
 
 
 
