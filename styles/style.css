@@ -123,7 +123,6 @@ div.main {
 }
 
 div#tools {
-    /* background-color: rgb(248, 0, 0); */
     width: 200px;
     height: 600px;
     margin-right: 160px;
@@ -222,5 +221,9 @@ div#grid {
 .box {
     background-color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
-    /* border: 3px solid #ffffff; */
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }

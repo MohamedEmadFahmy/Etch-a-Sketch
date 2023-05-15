@@ -15,6 +15,8 @@ const grid = document.querySelector("#grid");
 
 const pixelsXY = 700;
 
+const colorPicker = document.querySelector("#color-picker");
+
 
 firstButton.classList.add("active"); // set default mode to be color and button to be active
 
@@ -57,7 +59,6 @@ const handleClick = (event)=>{
     event.target.classList.add("active");     // to make only 1 of the first 3 buttons active at the same time
     let buttonId = event.target.id;
     mode = buttonId.slice(0,-5) // modes: color, rainbow, eraser
-    // console.log(mode);
 };
 
 buttons.forEach((button) =>{
@@ -76,13 +77,9 @@ const createDivs = (size) => {
             div.style.height = width + "px";
             if(i !== 0){
                 div.classList.add("border-left");
-                // div.style.borderLeft = "1px solid grey";
-                // div.style.backgroundColor = "black";
             }
             if(j !== 0){
-                div.classList.add("border-top");
-                // div.style.borderTop = "1px solid grey";
-                // div.style.backgroundColor = "black";
+                div.classList.add("border-top")
             }
             grid.appendChild(div);
             addListener(div);
@@ -112,22 +109,49 @@ document.addEventListener("mouseup", () => {
         mouseDown = false;
 })
 
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function addListener(div) {
     div.addEventListener("mousedown", () => {
-        div.style.backgroundColor = "black";
+        if(mode === "eraser"){
+            color = "white";
+        }
+        else if(mode === "color"){
+            color = colorPicker.value;
+        }
+        else{
+            r = randomNumber(0,255);
+            g = randomNumber(0,255);
+            b = randomNumber(0,255);
+            color = "rgb(" + r + ", " + g + ", " + b + ")"
+        }
+        div.style.backgroundColor = color;
         mouseDown = true;
     })
     div.addEventListener("mouseover", () => {
         if(mouseDown){
-            div.style.backgroundColor = "black";
+            if(mode === "eraser"){
+                color = "white";
+            }
+            else if(mode === "color"){
+                color = colorPicker.value;
+            }
+            else{
+                r = randomNumber(0,255);
+                g = randomNumber(0,255);
+                b = randomNumber(0,255);
+                color = "rgb(" + r + ", " + g + ", " + b + ")"
+            }
+            div.style.backgroundColor = color;
         }
     })
 }
 
 
 gridSizeText.innerHTML = gridSize + "x" + gridSize;  // to update slider text
-// createDivs(gridSize);
-createDivs(6);
+createDivs(gridSize);
 let mode = "color";
 gridlinesButton.classList.toggle("active");
 toggleGridlines();
